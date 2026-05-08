@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>SEHATI - Proposal Sistem</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+    :root {
+      --primary-color: #4A6345;
+      --primary-light: #A8DF8E;
+      --primary-gradient: linear-gradient(135deg, #1e3a1a 0%, #4A6345 100%);
+      --accent-color: #fbbf24;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --bg-light: #f8fafc;
+    }
+
+    body {
+      font-family: 'Outfit', 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: var(--bg-light);
+      color: var(--text-main);
+      line-height: 1.7;
+    }
+
+    /* Print Configuration */
+    @page {
+      size: A4;
+      margin: 20mm 0; /* Standard margin for all pages */
+    }
+
+    @page :first {
+      margin: 0; /* No margin for cover to allow full-bleed gradient */
+    }
+
+    @media print {
+      body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .page {
+        margin: 0 !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        width: 100% !important;
+        min-height: auto !important;
+        height: auto !important;
+        padding: 40px 60px !important;
+      }
+      .cover-page {
+        height: 297mm !important;
+      }
+    }
+
+    .page {
+      background: white;
+      padding: 60px;
+      margin: 40px auto;
+      width: 210mm;
+      box-sizing: border-box;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+      position: relative;
+    }
+
+    /* COVER PAGE STYLES */
+    .cover-page {
+      background: linear-gradient(135deg, #2d4f1e 0%, #4A6345 100%);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 297mm;
+      page-break-after: always !important;
+    }
+
+    .cover-header {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .cover-header .brand {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .cover-header .tagline {
+      font-size: 14px;
+      font-weight: 300;
+      opacity: 0.8;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .cover-content {
+      margin-top: 20px;
+    }
+
+    .proposal-pill {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      padding: 10px 28px;
+      border-radius: 40px;
+      font-size: 15px;
+      font-weight: 600;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      margin-bottom: 40px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .cover-title {
+      font-size: 64px;
+      font-weight: 700;
+      line-height: 1.1;
+      max-width: 850px;
+      margin-bottom: 40px;
+      letter-spacing: -1px;
+    }
+
+    .cover-title span.highlight-text {
+      color: var(--accent-color);
+      position: relative;
+    }
+
+    .cover-title span.highlight-text::after {
+      content: '';
+      position: absolute;
+      right: -70px;
+      top: 45%;
+      width: 60px;
+      height: 3px;
+      background: var(--accent-color);
+    }
+
+    .cover-desc {
+      font-size: 19px;
+      line-height: 1.6;
+      opacity: 0.9;
+      max-width: 700px;
+      margin-bottom: 50px;
+      font-weight: 300;
+    }
+
+    .tag-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .tag-pill {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 10px 24px;
+      border-radius: 40px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .cover-footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      padding-top: 40px;
+      margin-top: 60px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+
+    .footer-item label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      opacity: 0.6;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .footer-item span {
+      font-size: 20px;
+      font-weight: 600;
+      display: block;
+    }
+
+    /* GENERAL PAGE STYLES */
+    .section-title {
+      font-size: 28px;
+      font-weight: 700;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      color: var(--primary-color);
+      border-bottom: 2px solid var(--primary-light);
+      padding-bottom: 10px;
+      display: inline-block;
+    }
+
+    .highlight {
+      background: #f1f8ed;
+      padding: 30px;
+      border-radius: 16px;
+      margin: 30px 0;
+      border-left: 6px solid var(--primary-color);
+      break-inside: avoid;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 16px;
+      border: 1px solid #e2e8f0;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      break-inside: avoid;
+    }
+
+    .card:hover {
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .big-number {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 16px;
+      background: var(--primary-light);
+      color: #1e3a1a;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-right: 8px;
+      margin-bottom: 8px;
+    }
+
+    img {
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      border: 1px solid #e2e8f0;
+      break-inside: avoid;
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- PAGE 1: COVER -->
+  <div class="page cover-page">
+    <div class="cover-header">
+      <div class="brand">SEHATI Enterprise</div>
+      <div class="tagline">Sehat & Bergizi Terintegrasi</div>
+    </div>
+
+    <div class="cover-content">
+      <div class="proposal-pill">Proposal Solusi • 2026</div>
+      
+      <h1 class="cover-title">
+        Transformasi <span class="highlight-text">Manajemen SDM</span><br>
+        untuk Era Digital
+      </h1>
+
+      <p class="cover-desc">
+        Ekosistem HRIS terpadu yang mengintegrasikan administrasi, absensi, 
+        penggajian, dan manajemen tenaga kerja dalam satu platform modern, aman, 
+        dan efisien — dirancang khusus untuk mendukung program Makan Bergizi Gratis (MBG) Indonesia.
+      </p>
+
+      <div class="tag-container">
+        <div class="tag-pill">Multi-Foundation</div>
+        <div class="tag-pill">Role-Based Access</div>
+        <div class="tag-pill">Mobile Ready</div>
+        <div class="tag-pill">Payroll & PPh21</div>
+        <div class="tag-pill">Audit Trail</div>
+      </div>
+    </div>
+
+    <div class="cover-footer">
+      <div class="footer-grid">
+        <div class="footer-item">
+          <label>Disiapkan Untuk</label>
+          <span>Calon Klien Korporat</span>
+        </div>
+        <div class="footer-item">
+          <label>Versi Dokumen</label>
+          <span>1.0 • Edisi 2026</span>
+        </div>
+        <div class="footer-item">
+          <label>Klasifikasi</label>
+          <span>Confidential</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE 2: RINGKASAN & TENTANG -->
+  <div class="page">
+    <div class="section-title">Ringkasan Eksekutif</div>
+
+    <p>
+      Dalam operasional program MBG, terdapat berbagai tantangan seperti pengelolaan tenaga kerja 
+      yang tersebar, perencanaan menu yang kompleks, serta kebutuhan transparansi dalam proses 
+      keuangan dan distribusi. SEHATI hadir sebagai solusi untuk menyatukan seluruh proses tersebut 
+      ke dalam satu sistem yang terintegrasi.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <div class="big-number">Terintegrasi</div>
+        Semua modul saling terhubung dalam satu sistem tanpa silo data.
+      </div>
+
+      <div class="card">
+        <div class="big-number">Real-time</div>
+        Data diperbarui secara langsung untuk mendukung pengambilan keputusan cepat.
+      </div>
+
+      <div class="card">
+        <div class="big-number">Efisien</div>
+        Mengurangi proses manual dan duplikasi pekerjaan administratif.
+      </div>
+
+      <div class="card">
+        <div class="big-number">Aman</div>
+        Menggunakan autentikasi berlapis dan kontrol akses berbasis peran.
+      </div>
+    </div>
+
+    <div class="section-title">Tentang Sistem SEHATI</div>
+
+    <p>
+      SEHATI dibangun dengan pendekatan <b>Clean Architecture</b> untuk memastikan sistem tetap 
+      modular, scalable, dan mudah dikembangkan. Sistem ini tidak hanya berfungsi sebagai aplikasi operasional, tetapi juga sebagai 
+      <b>sumber kebenaran data (single source of truth)</b> bagi seluruh aktivitas Central Kitchen.
+    </p>
+
+    <img src="assets/home.png" alt="Dashboard Umum SEHATI" style="width: 100%; height: auto; border-radius: 8px; margin-top: 20px;">
+  </div>
+
+  <!-- PAGE 3: TEKNOLOGI & CAKUPAN -->
+  <div class="page">
+    <div class="section-title">Teknologi & Arsitektur</div>
+
+    <p>
+      SEHATI dibangun menggunakan teknologi modern berbasis Flutter Web dengan pendekatan 
+      arsitektur bersih (Clean Architecture) untuk memastikan performa tinggi dan kemudahan 
+      pemeliharaan sistem.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <b>Framework</b><br>
+        Flutter Web (SDK 3.x)
+      </div>
+
+      <div class="card">
+        <b>State Management</b><br>
+        GetX (Routing, DI, State)
+      </div>
+
+      <div class="card">
+        <b>Networking</b><br>
+        Dio + Repository Pattern
+      </div>
+
+      <div class="card">
+        <b>Storage</b><br>
+        GetStorage
+      </div>
+    </div>
+
+    <div class="section-title">Cakupan Sistem Utama</div>
+
+    <div class="grid">
+      <div class="card">
+        <b>HRIS & Attendance</b><br>
+        Manajemen staf, absensi, dan payroll.
+      </div>
+
+      <div class="card">
+        <b>Kitchen Operations</b><br>
+        Perencanaan menu dan operasional dapur.
+      </div>
+
+      <div class="card">
+        <b>Master Data</b><br>
+        Data bahan baku, sekolah, dan aset.
+      </div>
+
+      <div class="card">
+        <b>Finance & Approval</b><br>
+        Pengelolaan keuangan dan workflow persetujuan.
+      </div>
+    </div>
+
+    <div class="highlight">
+      <b>Pilar Utama:</b> Integrasi Menyeluruh, Modular & Scalable, Data Terpusat, serta Audit & Transparansi untuk setiap aktivitas sistem.
+    </div>
+  </div>
+
+  <!-- PAGE 4: AUTENTIKASI -->
+  <div class="page">
+    <div class="section-title">Akses & Keamanan Sistem</div>
+
+    <p>
+      SEHATI menerapkan mekanisme autentikasi berlapis untuk memastikan keamanan data. 
+      Setiap pengguna mengakses sistem melalui satu pintu login yang sama dengan kontrol akses berbasis peran (RBAC).
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <b>Halaman Login</b><br>
+        Verifikasi email dan password terenkripsi.
+      </div>
+      <div class="card">
+        <b>Verifikasi OTP</b><br>
+        Lapisan keamanan tambahan (One-Time Password).
+      </div>
+    </div>
+
+    <img src="assets/login.png" alt="Halaman Login SEHATI" style="width: 100%; height: auto; border-radius: 8px; margin-top: 20px;">
+
+    <img src="assets/otp.png" alt="Halaman Verifikasi OTP SEHATI" style="width: 100%; height: auto; border-radius: 8px; margin-top: 20px;">
+
+    <div class="grid" style="margin-top: 30px;">
+      <div class="card">
+        <b>Fitur Reset Password</b><br>
+        Pemulihan akun aman melalui verifikasi email terdaftar.
+      </div>
+      <div class="card">
+        <b>Audit Log</b><br>
+        Setiap aktivitas login dan perubahan data tercatat dalam sistem.
+      </div>
+    </div>
+    
+    <img src="assets/forgot-password.png" alt="Halaman Forgot Password SEHATI" style="width: 100%; height: auto; border-radius: 8px; margin-top: 20px;">
+  </div>
+
+  <!-- PAGE 5: DASHBOARD & ALUR -->
+  <div class="page">
+    <div class="section-title">Dashboard & Alur Autentikasi</div>
+
+    <p>
+      Setelah proses autentikasi berhasil, pengguna diarahkan ke dashboard sesuai peran masing-masing. 
+      Dashboard berfungsi sebagai pusat navigasi dan ringkasan informasi operasional real-time.
+    </p>
+
+    <img src="assets/dashboard.png" alt="Dashboard SEHATI" style="width: 100%; height: auto; border-radius: 8px; margin-top: 20px;">
+
+    <div class="highlight" style="margin-top: 30px;">
+      <b>Alur Kerja Keamanan:</b><br>
+      Login → Validasi Kredensial → Verifikasi OTP → Akses Dashboard
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <b>Ringkasan Data</b><br>
+        Informasi utama ditampilkan secara cepat dan akurat.
+      </div>
+      <div class="card">
+        <b>Role-Based View</b><br>
+        Tampilan menu menyesuaikan dengan hak akses pengguna.
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE 6: OPERASIONAL DASHBOARD -->
+  <div class="page">
+    <div class="section-title">Dashboard Operasional & Kehadiran</div>
+
+    <p>
+      Dashboard Operasional memberikan gambaran menyeluruh terhadap aktivitas Central Kitchen, 
+      termasuk jumlah dapur, yayasan, dan status kehadiran staf secara real-time.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <b>Statistik Utama</b><br>
+        Total Yayasan, Dapur, Karyawan, dan Absensi hari ini.
+      </div>
+      <div class="card">
+        <b>Monitoring Real-time</b><br>
+        Memastikan kehadiran staf dapat dipantau langsung.
+      </div>
+    </div>
+
+    <img src="assets/dashboard-kehadiran.png" alt="Tabel Kehadiran SEHATI" style="width: 100%; height: auto; border-radius: 8px; margin-top: 30px;">
+    
+    <div class="highlight" style="margin-top: 30px;">
+      <b>Manajemen Kehadiran:</b> Mencatat jam masuk, jam keluar, shift kerja, dan status kehadiran (hadir, terlambat, izin, alpa) secara akurat.
+    </div>
+  </div>
+
+  <!-- PAGE 7: PRODUKSI & INVENTARIS -->
+  <div class="page">
+    <div class="section-title">Monitoring Produksi & Inventaris</div>
+
+    <p>
+      Sistem memantau progres produksi menu dan ketersediaan bahan baku secara real-time untuk 
+      menghindari bottleneck dan keterlambatan distribusi.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <b>Produksi Menu</b><br>
+        Progres persiapan hingga siap distribusi.
+      </div>
+      <div class="card">
+        <b>Stok Bahan Baku</b><br>
+        Peringatan dini untuk stok yang hampir habis.
+      </div>
+      <div class="card">
+        <b>Perangkat Dapur</b><br>
+        Status kondisi alat (aktif/perlu perbaikan).
+      </div>
+      <div class="card">
+        <b>Efisiensi Logistik</b><br>
+        Perencanaan pengadaan yang lebih akurat.
+      </div>
+    </div>
+
+    <img src="assets/dashboard-inventaris.png" alt="Monitoring Stok Bahan Baku SEHATI" style="width: 100%; height: auto; border-radius: 8px; margin-top: 30px;">
+    
+    <div class="highlight" style="margin-top: 30px;">
+      <b>Manajemen Persediaan:</b> Sistem secara otomatis menandai bahan dengan jumlah minimum dan memantau pemeliharaan perangkat dapur secara terpusat.
+    </div>
+  </div>
+
+  <!-- PAGE 8: MANAJEMEN SDM -->
+  <div class="page">
+    <div class="section-title">Manajemen SDM & Penggajian</div>
+
+    <p>
+      Pusat pengelolaan seluruh tenaga kerja yang terlibat dalam operasional Central Kitchen, 
+      mulai dari identitas, kontrak, hingga rincian komponen gaji (pendapatan & potongan).
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <b>Data Karyawan</b><br>
+        Pencarian, filter lokasi, dan manajemen status aktif/nonaktif ataupun suspend.
+      </div>
+      <div class="card">
+        <b>Profil Gaji</b><br>
+        Pengaturan komponen gaji yang fleksibel dan dinamis per karyawan.
+      </div>
+    </div>
+
+    <img src="assets/data-karyawan.png" alt="Data Karyawan SEHATI" style="width: 100%; height: auto; border-radius: 8px; margin-top: 30px;">
+    
+    <div class="grid" style="margin-top: 30px;">
+      <div class="card">
+        <b>Komponen Gaji</b><br>
+        Manajemen pendapatan (gaji pokok, tunjangan) dan potongan secara otomatis.
+      </div>
+      <div class="card">
+        <b>Terintegrasi Payroll</b><br>
+        Data otomatis digunakan dalam perhitungan gaji bulanan.
+      </div>
+    </div>
+
+    <img src="assets/gaji-karyawan.png" alt="Profil Gaji Karyawan SEHATI" style="width: 100%; height: auto; border-radius: 8px; margin-top: 30px;">
+  </div>
+
+</body>
+</html>
