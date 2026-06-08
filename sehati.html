@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8">
   <title>SEHATI - Proposal Sistem</title>
@@ -29,11 +30,13 @@
     /* Print Configuration */
     @page {
       size: A4;
-      margin: 20mm 0; /* Standard margin for all pages */
+      margin: 20mm 0;
+      /* Standard margin for all pages */
     }
 
     @page :first {
-      margin: 0; /* No margin for cover to allow full-bleed gradient */
+      margin: 0;
+      /* No margin for cover to allow full-bleed gradient */
     }
 
     @media print {
@@ -41,6 +44,7 @@
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
       }
+
       .page {
         margin: 0 !important;
         box-shadow: none !important;
@@ -50,6 +54,7 @@
         height: auto !important;
         padding: 40px 60px !important;
       }
+
       .cover-page {
         height: 297mm !important;
       }
@@ -62,7 +67,7 @@
       width: 210mm;
       box-sizing: border-box;
       border-radius: 12px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
       position: relative;
     }
 
@@ -256,14 +261,13 @@
     }
 
     img {
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
       border: 1px solid #e2e8f0;
       break-inside: avoid;
       max-width: 100%;
       height: auto;
       display: block;
     }
-
   </style>
 </head>
 
@@ -278,15 +282,15 @@
 
     <div class="cover-content">
       <div class="proposal-pill">Proposal Solusi • 2026</div>
-      
+
       <h1 class="cover-title">
         Transformasi <span class="highlight-text">Manajemen SDM</span><br>
         untuk Era Digital
       </h1>
 
       <p class="cover-desc">
-        Ekosistem HRIS terpadu yang mengintegrasikan administrasi, absensi, 
-        penggajian, dan manajemen tenaga kerja dalam satu platform modern, aman, 
+        Ekosistem HRIS terpadu yang mengintegrasikan administrasi, absensi,
+        penggajian, dan manajemen tenaga kerja dalam satu platform modern, aman,
         dan efisien — dirancang khusus untuk mendukung program Makan Bergizi Gratis (MBG) Indonesia.
       </p>
 
@@ -322,9 +326,9 @@
     <div class="section-title">Ringkasan Eksekutif</div>
 
     <p>
-      Dalam operasional program MBG, terdapat berbagai tantangan seperti pengelolaan tenaga kerja 
-      yang tersebar, perencanaan menu yang kompleks, serta kebutuhan transparansi dalam proses 
-      keuangan dan distribusi. SEHATI hadir sebagai solusi untuk menyatukan seluruh proses tersebut 
+      Dalam operasional program MBG, terdapat berbagai tantangan seperti pengelolaan tenaga kerja
+      yang tersebar, perencanaan menu yang kompleks, serta kebutuhan transparansi dalam proses
+      keuangan dan distribusi. SEHATI hadir sebagai solusi untuk menyatukan seluruh proses tersebut
       ke dalam satu sistem yang terintegrasi.
     </p>
 
@@ -353,12 +357,14 @@
     <div class="section-title">Tentang Sistem SEHATI</div>
 
     <p>
-      SEHATI dibangun dengan pendekatan <b>Clean Architecture</b> untuk memastikan sistem tetap 
-      modular, scalable, dan mudah dikembangkan. Sistem ini tidak hanya berfungsi sebagai aplikasi operasional, tetapi juga sebagai 
+      SEHATI dibangun dengan pendekatan <b>Clean Architecture</b> untuk memastikan sistem tetap
+      modular, scalable, dan mudah dikembangkan. Sistem ini tidak hanya berfungsi sebagai aplikasi operasional, tetapi
+      juga sebagai
       <b>sumber kebenaran data (single source of truth)</b> bagi seluruh aktivitas Central Kitchen.
     </p>
 
-    <img src="assets/home.png" alt="Dashboard Umum SEHATI" style="width: 100%; height: auto; border-radius: 8px; margin-top: 20px;">
+    <img src="assets/home.png" alt="Dashboard Umum SEHATI"
+      style="width: 100%; height: auto; border-radius: 8px; margin-top: 20px;">
   </div>
 
   <!-- PAGE 3: TEKNOLOGI & CAKUPAN -->
@@ -366,8 +372,8 @@
     <div class="section-title">Teknologi & Arsitektur</div>
 
     <p>
-      SEHATI dibangun menggunakan teknologi modern berbasis Flutter Web dengan pendekatan 
-      arsitektur bersih (Clean Architecture) untuk memastikan performa tinggi dan kemudahan 
+      SEHATI dibangun menggunakan teknologi modern berbasis Flutter Web dengan pendekatan
+      arsitektur bersih (Clean Architecture) untuk memastikan performa tinggi dan kemudahan
       pemeliharaan sistem.
     </p>
 
@@ -418,7 +424,8 @@
     </div>
 
     <div class="highlight">
-      <b>Pilar Utama:</b> Integrasi Menyeluruh, Modular & Scalable, Data Terpusat, serta Audit & Transparansi untuk setiap aktivitas sistem.
+      <b>Pilar Utama:</b> Integrasi Menyeluruh, Modular & Scalable, Data Terpusat, serta Audit & Transparansi untuk
+      setiap aktivitas sistem.
     </div>
   </div>
 
@@ -427,7 +434,7 @@
     <div class="section-title">Akses & Keamanan Sistem</div>
 
     <p>
-      SEHATI menerapkan mekanisme autentikasi berlapis untuk memastikan keamanan data. 
+      SEHATI menerapkan mekanisme autentikasi berlapis untuk memastikan keamanan data.
       Setiap pengguna mengakses sistem melalui satu pintu login yang sama dengan kontrol akses berbasis peran (RBAC).
     </p>
 
@@ -442,9 +449,11 @@
       </div>
     </div>
 
-    <img src="assets/login.png" alt="Halaman Login SEHATI" style="width: 100%; height: auto; border-radius: 8px; margin-top: 20px;">
+    <img src="assets/login.png" alt="Halaman Login SEHATI"
+      style="width: 100%; height: auto; border-radius: 8px; margin-top: 20px;">
 
-    <img src="assets/otp.png" alt="Halaman Verifikasi OTP SEHATI" style="width: 100%; height: auto; border-radius: 8px; margin-top: 20px;">
+    <img src="assets/otp.png" alt="Halaman Verifikasi OTP SEHATI"
+      style="width: 100%; height: auto; border-radius: 8px; margin-top: 20px;">
 
     <div class="grid" style="margin-top: 30px;">
       <div class="card">
@@ -456,8 +465,9 @@
         Setiap aktivitas login dan perubahan data tercatat dalam sistem.
       </div>
     </div>
-    
-    <img src="assets/forgot-password.png" alt="Halaman Forgot Password SEHATI" style="width: 100%; height: auto; border-radius: 8px; margin-top: 20px;">
+
+    <img src="assets/forgot-password.png" alt="Halaman Forgot Password SEHATI"
+      style="width: 100%; height: auto; border-radius: 8px; margin-top: 20px;">
   </div>
 
   <!-- PAGE 5: DASHBOARD & ALUR -->
@@ -465,11 +475,12 @@
     <div class="section-title">Dashboard & Alur Autentikasi</div>
 
     <p>
-      Setelah proses autentikasi berhasil, pengguna diarahkan ke dashboard sesuai peran masing-masing. 
+      Setelah proses autentikasi berhasil, pengguna diarahkan ke dashboard sesuai peran masing-masing.
       Dashboard berfungsi sebagai pusat navigasi dan ringkasan informasi operasional real-time.
     </p>
 
-    <img src="assets/dashboard.png" alt="Dashboard SEHATI" style="width: 100%; height: auto; border-radius: 8px; margin-top: 20px;">
+    <img src="assets/dashboard.png" alt="Dashboard SEHATI"
+      style="width: 100%; height: auto; border-radius: 8px; margin-top: 20px;">
 
     <div class="highlight" style="margin-top: 30px;">
       <b>Alur Kerja Keamanan:</b><br>
@@ -493,7 +504,7 @@
     <div class="section-title">Dashboard Operasional & Kehadiran</div>
 
     <p>
-      Dashboard Operasional memberikan gambaran menyeluruh terhadap aktivitas Central Kitchen, 
+      Dashboard Operasional memberikan gambaran menyeluruh terhadap aktivitas Central Kitchen,
       termasuk jumlah dapur, yayasan, dan status kehadiran staf secara real-time.
     </p>
 
@@ -508,10 +519,12 @@
       </div>
     </div>
 
-    <img src="assets/dashboard-kehadiran.png" alt="Tabel Kehadiran SEHATI" style="width: 100%; height: auto; border-radius: 8px; margin-top: 30px;">
-    
+    <img src="assets/dashboard-kehadiran.png" alt="Tabel Kehadiran SEHATI"
+      style="width: 100%; height: auto; border-radius: 8px; margin-top: 30px;">
+
     <div class="highlight" style="margin-top: 30px;">
-      <b>Manajemen Kehadiran:</b> Mencatat jam masuk, jam keluar, shift kerja, dan status kehadiran (hadir, terlambat, izin, alpa) secara akurat.
+      <b>Manajemen Kehadiran:</b> Mencatat jam masuk, jam keluar, shift kerja, dan status kehadiran (hadir, terlambat,
+      izin, alpa) secara akurat.
     </div>
   </div>
 
@@ -520,7 +533,7 @@
     <div class="section-title">Monitoring Produksi & Inventaris</div>
 
     <p>
-      Sistem memantau progres produksi menu dan ketersediaan bahan baku secara real-time untuk 
+      Sistem memantau progres produksi menu dan ketersediaan bahan baku secara real-time untuk
       menghindari bottleneck dan keterlambatan distribusi.
     </p>
 
@@ -543,10 +556,12 @@
       </div>
     </div>
 
-    <img src="assets/dashboard-inventaris.png" alt="Monitoring Stok Bahan Baku SEHATI" style="width: 100%; height: auto; border-radius: 8px; margin-top: 30px;">
-    
+    <img src="assets/dashboard-inventaris.png" alt="Monitoring Stok Bahan Baku SEHATI"
+      style="width: 100%; height: auto; border-radius: 8px; margin-top: 30px;">
+
     <div class="highlight" style="margin-top: 30px;">
-      <b>Manajemen Persediaan:</b> Sistem secara otomatis menandai bahan dengan jumlah minimum dan memantau pemeliharaan perangkat dapur secara terpusat.
+      <b>Manajemen Persediaan:</b> Sistem secara otomatis menandai bahan dengan jumlah minimum dan memantau pemeliharaan
+      perangkat dapur secara terpusat.
     </div>
   </div>
 
@@ -555,7 +570,7 @@
     <div class="section-title">Manajemen SDM & Penggajian</div>
 
     <p>
-      Pusat pengelolaan seluruh tenaga kerja yang terlibat dalam operasional Central Kitchen, 
+      Pusat pengelolaan seluruh tenaga kerja yang terlibat dalam operasional Central Kitchen,
       mulai dari identitas, kontrak, hingga rincian komponen gaji (pendapatan & potongan).
     </p>
 
@@ -570,8 +585,9 @@
       </div>
     </div>
 
-    <img src="assets/data-karyawan.png" alt="Data Karyawan SEHATI" style="width: 100%; height: auto; border-radius: 8px; margin-top: 30px;">
-    
+    <img src="assets/data-karyawan.png" alt="Data Karyawan SEHATI"
+      style="width: 100%; height: auto; border-radius: 8px; margin-top: 30px;">
+
     <div class="grid" style="margin-top: 30px;">
       <div class="card">
         <b>Komponen Gaji</b><br>
@@ -583,8 +599,205 @@
       </div>
     </div>
 
-    <img src="assets/gaji-karyawan.png" alt="Profil Gaji Karyawan SEHATI" style="width: 100%; height: auto; border-radius: 8px; margin-top: 30px;">
+    <img src="assets/gaji-karyawan.png" alt="Profil Gaji Karyawan SEHATI"
+      style="width: 100%; height: auto; border-radius: 8px; margin-top: 30px;">
+  </div>
+
+  <!-- PAGE 9: JADWAL ABSENSI -->
+  <div class="page">
+    <div class="section-title">Jadwal Absensi & Rencana Shift</div>
+
+    <p>
+      Modul jadwal absensi memberikan kemudahan dalam pengorganisasian shift kerja,
+      alokasi tugas harian, dan komunikasi jadwal kepada staf. Sistem memastikan setiap
+      kehadiran terjadwal dapat dilacak secara transparan.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <b>Perencanaan Shift</b><br>
+        Menyusun jadwal kerja harian dan mingguan dengan dukungan beberapa tipe shift.
+      </div>
+      <div class="card">
+        <b>Distribusi Tugas</b><br>
+        Menetapkan siapa bekerja di dapur, distribusi, dan administrasi setiap hari.
+      </div>
+      <div class="card">
+        <b>Laporan Kehadiran</b><br>
+        Rekap data hadir, izin, terlambat, dan absen untuk evaluasi rutin.
+      </div>
+    </div>
+
+    <img src="assets/jadwal-absensi.png" alt="Jadwal Absensi SEHATI"
+      style="width: 100%; height: auto; border-radius: 8px; margin-top: 30px;">
+
+    <div class="highlight" style="margin-top: 30px;">
+      <b>Fitur Utama:</b> Pengelolaan jadwal staf yang efisien, integrasi dengan data kehadiran,
+      dan visibilitas penuh untuk manajer serta tim operasional.
+    </div>
+  </div>
+
+  <!-- PAGE 10: KELOLA ABSENSI -->
+  <div class="page">
+    <div class="section-title">Kelola Absensi & Import Excel</div>
+
+    <p>
+      Modul kelola absensi dirancang untuk mempermudah pengguna ketika data hadir sudah tersedia
+      dalam bentuk file Excel atau berasal dari mesin IoT. Pengguna dapat mengunggah file dengan
+      format terstandar untuk menyinkronkan data kehadiran tanpa perlu memasukkan ulang secara manual.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <b>Upload Excel</b><br>
+        Dukung impor data absensi dari file Excel standar untuk meminimalkan pekerjaan manual.
+      </div>
+      <div class="card">
+        <b>Kompatibilitas Mesin IoT</b><br>
+        Data kehadiran dari mesin biometrik ataupun terminal IoT dapat dicocokkan dengan format import.
+      </div>
+      <div class="card">
+        <b>Preview & Validasi</b><br>
+        Menampilkan ringkasan sebelum proses impor untuk mengurangi kesalahan data.
+      </div>
+      <div class="card">
+        <b>Format Standar</b><br>
+        Panduan format file Excel tersedia langsung dalam tampilan import.
+      </div>
+    </div>
+
+    <img src="assets/kelola-absensi.png" alt="Kelola Absensi SEHATI"
+      style="width: 100%; height: auto; border-radius: 8px; margin-top: 30px;">
+
+    <p style="margin-top: 30px;">
+      Contoh template file Excel dapat dilihat sebagai referensi format sebelum melakukan upload.
+      Pastikan kolom tanggal, ID karyawan, jenis kehadiran, dan jam bekerja sesuai dengan format.
+    </p>
+
+    <img src="assets/format-kelola-absensi.png" alt="Format Kelola Absensi SEHATI"
+      style="width: 100%; height: auto; border-radius: 8px; margin-top: 20px;">
+
+    <div class="highlight" style="margin-top: 30px;">
+      <b>Manfaat:</b> Mempercepat proses sinkronisasi absensi, mengurangi input manual, dan memastikan
+      konsistensi data dari beragam sumber seperti Excel dan mesin IoT.
+    </div>
+  </div>
+
+  <!-- PAGE 11: RIWAYAT ABSENSI -->
+  <div class="page">
+    <div class="section-title">Riwayat Absensi</div>
+
+    <p>
+      Halaman riwayat absensi memberikan ringkasan lengkap catatan kehadiran yang bisa diakses oleh admin.
+      Fitur ini memudahkan pengecekan kembali, koreksi, dan pelaporan data kehadiran.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <b>Filter Dinamis</b><br>
+        Admin dapat memfilter riwayat berdasarkan tanggal, karyawan, lokasi, status kehadiran, maupun shift.
+      </div>
+      <div class="card">
+        <b>Export Excel</b><br>
+        Data yang telah difilter bisa diekspor ke Excel untuk analisis lanjutan dan arsip.
+      </div>
+      <div class="card">
+        <b>Export PDF</b><br>
+        Cetak laporan absensi dalam format PDF yang mudah dibagikan kepada manajemen.
+      </div>
+      <div class="card">
+        <b>Riwayat Lengkap</b><br>
+        Menyimpan jejak kehadiran harian sekaligus catatan izin, terlambat, dan absen.
+      </div>
+    </div>
+
+    <img src="assets/riwayat-absensi-admin.png" alt="Riwayat Absensi Admin SEHATI"
+      style="width: 100%; height: auto; border-radius: 8px; margin-top: 30px;">
+
+    <div class="highlight" style="margin-top: 30px;">
+      <b>Fungsi Filter:</b> Menyederhanakan pencarian data absensi untuk periode tertentu,
+      karyawan spesifik, atau kondisi absen khusus seperti izin dan terlambat.
+      <br><b>Fungsi Export:</b> Menghasilkan file Excel untuk pengolahan lebih lanjut dan file PDF untuk
+      dokumentasi atau presentasi laporan.
+    </div>
+  </div>
+
+  <!-- PAGE 12: PENGAJUAN CUTI -->
+  <div class="page">
+    <div class="section-title">Pengajuan Cuti </div>
+
+    <p>
+      Halaman pengajuan cuti ditujukan khusus bagi admin yayasan untuk memantau dan meninjau
+      permintaan cuti yang diajukan oleh staf di lingkungan yayasannya sendiri.
+      Admin hanya dapat melihat pengajuan cuti dari yayasan yang menjadi tanggung jawab mereka.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <b>Akses Terkontrol</b><br>
+        Admin hanya melihat pengajuan cuti dari yayasan sendiri, menjaga privasi dan batas wilayah.
+      </div>
+      <div class="card">
+        <b>Status Permintaan</b><br>
+        Menampilkan status cuti seperti menunggu persetujuan, disetujui, atau ditolak.
+      </div>
+      <div class="card">
+        <b>Detail Karyawan</b><br>
+        Informasi lengkap karyawan, jenis cuti, dan durasi cuti tersedia pada setiap entri.
+      </div>
+      <div class="card">
+        <b>Fungsi Validasi</b><br>
+        Admin dapat menilai permintaan berdasarkan jadwal operasional dan ketersediaan staf.
+      </div>
+    </div>
+
+    <img src="assets/pengajuan-cuti-admin.png" alt="Pengajuan Cuti Admin SEHATI"
+      style="width: 100%; height: auto; border-radius: 8px; margin-top: 30px;">
+
+    <div class="highlight" style="margin-top: 30px;">
+      <b>Catatan:</b> Hak akses admin dibatasi per yayasan untuk memastikan setiap permintaan cuti
+      hanya dikelola oleh pihak yang berwenang dan relevan.
+    </div>
+  </div>
+
+  <!-- PAGE 13: JADWAL MENU -->
+  <div class="page">
+    <div class="section-title">Jadwal Menu</div>
+
+    <p>
+      Halaman jadwal menu memungkinkan Admin untuk menyusun jadwal menu dan menentukan
+      tanggal pengiriman untuk setiap rencana makanan. Fitur ini membantu memastikan distribusi
+      berjalan tepat waktu sesuai kebutuhan yayasan.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <b>Pilih Tanggal Pengiriman</b><br>
+        Saat menambah jadwal menu, Admin dapat menetapkan tanggal pengiriman yang diinginkan.
+      </div>
+      <div class="card">
+        <b>Perencanaan Menu</b><br>
+        Menentukan menu harian atau mingguan dengan alokasi tanggal pengiriman yang jelas.
+      </div>
+      <div class="card">
+        <b>Sinkronisasi Operasional</b><br>
+        Tanggal pengiriman membantu koordinasi dapur, logistik, dan penerima manfaat.
+      </div>
+      <div class="card">
+        <b>Kontrol Jadwal</b><br>
+        Meminimalkan risiko keterlambatan dengan perencanaan jadwal pengiriman yang terstruktur.
+      </div>
+    </div>
+
+    <img src="assets/jadwal-menu.png" alt="Jadwal Menu SEHATI"
+      style="width: 100%; height: auto; border-radius: 8px; margin-top: 30px;">
+
+    <div class="highlight" style="margin-top: 30px;">
+      <b>Highlight:</b> Di halaman tambah jadwal, Admin dapat memasukkan tanggal pengiriman secara langsung
+      sehingga setiap menu terjadwal sesuai target distribusi.
+    </div>
   </div>
 
 </body>
+
 </html>

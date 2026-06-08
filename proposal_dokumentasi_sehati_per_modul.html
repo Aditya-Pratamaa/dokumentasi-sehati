@@ -1,0 +1,2289 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <title>PROPOSAL DOKUMENTASI SISTEM SEHATI - Ekosistem Terpadu MBG</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+    :root {
+      --primary-color: #2d4f1e;
+      --primary-medium: #4A6345;
+      --primary-light: #A8DF8E;
+      --primary-bg: #f1f8ed;
+      --accent-color: #fbbf24;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --bg-light: #f8fafc;
+      --border-color: #e2e8f0;
+    }
+
+    body {
+      font-family: 'Outfit', 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #e2e8f0;
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* Print Configuration */
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    @media print {
+      body {
+        background: white;
+      }
+      .page {
+        margin: 0 !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        width: 210mm !important;
+        height: 297mm !important;
+        page-break-after: always !important;
+        box-sizing: border-box !important;
+      }
+      .cover-page {
+        background: linear-gradient(135deg, #1b3313 0%, #3a5332 100%) !important;
+      }
+    }
+
+    .page {
+      background: white;
+      padding: 25mm 20mm;
+      margin: 30px auto;
+      width: 210mm;
+      height: 297mm;
+      box-sizing: border-box;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      page-break-after: always;
+    }
+
+    /* COVER PAGE STYLES */
+    .cover-page {
+      background: linear-gradient(135deg, #1b3313 0%, #3a5332 100%);
+      color: white;
+      padding: 30mm 20mm;
+      justify-content: space-between;
+    }
+
+    .cover-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      padding-bottom: 20px;
+    }
+
+    .cover-header .brand {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--primary-light);
+    }
+
+    .cover-header .tagline {
+      font-size: 13px;
+      font-weight: 400;
+      opacity: 0.8;
+      letter-spacing: 1px;
+      text-align: right;
+    }
+
+    .cover-content {
+      margin-top: 40px;
+      margin-bottom: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 60%;
+    }
+
+    .proposal-pill {
+      display: inline-block;
+      align-self: flex-start;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(8px);
+      padding: 8px 24px;
+      border-radius: 40px;
+      font-size: 13px;
+      font-weight: 600;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      margin-bottom: 30px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--accent-color);
+    }
+
+    .cover-title {
+      font-size: 48px;
+      font-weight: 800;
+      line-height: 1.15;
+      margin: 0 0 24px 0;
+      letter-spacing: -1px;
+    }
+
+    .cover-title span.highlight-text {
+      color: var(--primary-light);
+      position: relative;
+    }
+
+    .cover-desc {
+      font-size: 16px;
+      line-height: 1.6;
+      opacity: 0.9;
+      max-width: 620px;
+      margin-bottom: 40px;
+      font-weight: 300;
+      color: #e2e8f0;
+    }
+
+    .tag-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tag-pill {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 8px 18px;
+      border-radius: 40px;
+      font-size: 12px;
+      font-weight: 500;
+      color: #f8fafc;
+    }
+
+    .cover-footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      padding-top: 30px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .footer-item label {
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      opacity: 0.6;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .footer-item span {
+      font-size: 16px;
+      font-weight: 600;
+      display: block;
+      color: #f8fafc;
+    }
+
+    /* INNER PAGES STYLES */
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+
+    .page-header .doc-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+    }
+
+    .page-header .page-tag {
+      font-size: 11px;
+      background: var(--primary-bg);
+      color: var(--primary-medium);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-weight: 600;
+    }
+
+    .page-content {
+      flex-grow: 1;
+    }
+
+    .page-footer {
+      border-top: 1px solid var(--border-color);
+      padding-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .section-title {
+      font-size: 24px;
+      font-weight: 700;
+      margin-top: 0;
+      margin-bottom: 15px;
+      color: var(--primary-color);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-title::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 24px;
+      background: var(--primary-medium);
+      border-radius: 2px;
+    }
+
+    p.intro-text {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      text-align: justify;
+    }
+
+    /* CARD GRID STYLES */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+      font-size: 12.5px;
+    }
+
+    .card-title {
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13.5px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 3px 10px;
+      background: var(--primary-light);
+      color: var(--primary-color);
+      border-radius: 12px;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .highlight-box {
+      background: var(--primary-bg);
+      border-left: 4px solid var(--primary-medium);
+      padding: 15px;
+      border-radius: 0 10px 10px 0;
+      margin-bottom: 20px;
+      font-size: 13px;
+    }
+
+    /* SCREENSHOT PLACEHOLDER */
+    .screenshot-container {
+      margin-top: 15px;
+      margin-bottom: 15px;
+      border: 2px dashed #cbd5e1;
+      border-radius: 12px;
+      background: #f8fafc;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      height: 275px;
+      position: relative;
+    }
+
+    .screenshot-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .screenshot-placeholder-info {
+      padding: 20px;
+      color: #64748b;
+      font-size: 13px;
+    }
+
+    .screenshot-placeholder-info svg {
+      width: 40px;
+      height: 40px;
+      stroke: #94a3b8;
+      stroke-width: 1.5;
+      fill: none;
+      margin-bottom: 10px;
+    }
+
+    .screenshot-class-tag {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(15, 23, 42, 0.75);
+      color: white;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 10px;
+      font-family: monospace;
+      letter-spacing: 0.5px;
+    }
+
+
+    /* MODULE DETAIL STYLES */
+    .module-card {
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 12px;
+      margin-bottom: 12px;
+      background: #ffffff;
+      page-break-inside: avoid;
+    }
+    .module-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: flex-start;
+      margin-bottom: 8px;
+    }
+    .module-name {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--primary-color);
+      margin: 0;
+    }
+    .module-path {
+      font-size: 10px;
+      color: var(--text-muted);
+      background: var(--bg-light);
+      border: 1px solid var(--border-color);
+      padding: 3px 8px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+    .module-desc {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      margin: 0 0 8px 0;
+      text-align: justify;
+    }
+    .module-detail-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 10px;
+      align-items: stretch;
+    }
+    .feature-list {
+      margin: 0;
+      padding-left: 16px;
+      font-size: 10.8px;
+      color: var(--text-main);
+    }
+    .feature-list li { margin-bottom: 3px; }
+    .screenshot-container.compact {
+      height: 112px;
+      margin: 0;
+      border-radius: 10px;
+    }
+    .screenshot-container.compact .screenshot-placeholder-info {
+      padding: 8px;
+      font-size: 10.5px;
+    }
+    .screenshot-container.compact svg {
+      width: 24px;
+      height: 24px;
+      margin-bottom: 4px;
+    }
+    .module-index-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 11px;
+      margin-top: 12px;
+    }
+    .module-index-table th, .module-index-table td {
+      border: 1px solid var(--border-color);
+      padding: 6px 8px;
+      vertical-align: top;
+    }
+    .module-index-table th {
+      background: var(--primary-bg);
+      color: var(--primary-color);
+      text-align: left;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ================= PAGE 1: COVER ================= -->
+  <div class="page cover-page">
+    <div class="cover-header">
+      <div class="brand">SEHATI</div>
+      <div class="tagline">Sistem Evaluasi HR &<br>Administrasi Terintegrasi</div>
+    </div>
+
+    <div class="cover-content">
+      <div class="proposal-pill">Proposal & Dokumentasi Teknis</div>
+      <h1 class="cover-title">
+        Ekosistem HRIS &<br>
+        <span class="highlight-text">Operasional Dapur Sentral</span>
+      </h1>
+      <p class="cover-desc">
+        Solusi digital terintegrasi yang menggabungkan manajemen personalia, 
+        geofencing presisi, perencanaan menu nutrisi, manajemen stok bahan baku, 
+        hingga pengawasan SOP produksi guna menyukseskan Program Makan Bergizi Gratis (MBG).
+      </p>
+
+      <div class="tag-container">
+        <div class="tag-pill">✓ Clean Architecture</div>
+        <div class="tag-pill">✓ ESS Mobile Ready</div>
+        <div class="tag-pill">✓ Geofencing Radius</div>
+        <div class="tag-pill">✓ Automated Payroll</div>
+        <div class="tag-pill">✓ SOP Cleanliness Checklist</div>
+      </div>
+    </div>
+
+    <div class="cover-footer">
+      <div class="footer-grid">
+        <div class="footer-item">
+          <label>Disusun Oleh</label>
+          <span>Tim Pengembang SEHATI</span>
+        </div>
+        <div class="footer-item">
+          <label>Versi Sistem</label>
+          <span>v1.0.0 (Edisi 2026)</span>
+        </div>
+        <div class="footer-item">
+          <label>Tingkat Kerahasiaan</label>
+          <span>Confidential / Terbatas</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ================= PAGE 2: RINGKASAN & LATAR BELAKANG ================= -->
+  <div class="page">
+    <div class="page-header">
+      <span class="doc-title">SEHATI - Proposal & Dokumentasi</span>
+      <span class="page-tag">Pendahuluan</span>
+    </div>
+
+    <div class="page-content">
+      <h2 class="section-title">Ringkasan Eksekutif</h2>
+      <p class="intro-text">
+        Program Makan Bergizi Gratis (MBG) berskala nasional menuntut standarisasi kualitas masakan, 
+        ketepatan waktu distribusi, dan akuntabilitas anggaran yang sangat tinggi. Tantangan terbesar di lapangan 
+        meliputi koordinasi kru dapur yang tersebar, manajemen stok bahan baku basah/kering, kepatuhan kebersihan, 
+        serta transparansi absensi dan penggajian staf. 
+      </p>
+      
+      <p class="intro-text">
+        <strong>SEHATI (Sistem Evaluasi HR & Administrasi Terintegrasi)</strong> dirancang khusus sebagai 
+        <em>Single Source of Truth</em> untuk menjawab tantangan tersebut. Dengan mengintegrasikan sistem HRIS 
+        tradisional dengan fitur dapur pintar dan rantai pasok terdistribusi, SEHATI memastikan bahwa 
+        seluruh proses produksi berjalan efisien, aman, dan dapat diaudit secara real-time.
+      </p>
+
+      <div class="highlight-box">
+        <strong>Pilar Utama Ekosistem SEHATI:</strong>
+        <ul style="margin: 8px 0 0 0; padding-left: 20px; font-size: 12.5px;">
+          <li><strong>Akurasi & Integritas:</strong> Validasi absensi dengan GPS Radius ganda untuk mencegah manipulasi.</li>
+          <li><strong>Efisiensi Operasional:</strong> Perencanaan rotasi menu otomatis yang terhubung ke kebutuhan bahan baku.</li>
+          <li><strong>Kepatuhan SOP:</strong> Digitalisasi lembar kebersihan dan persiapan untuk audit berkala.</li>
+          <li><strong>Automasi Finansial:</strong> Kalkulasi slip gaji otomatis terhubung dengan jam kerja dan PPh21.</li>
+        </ul>
+      </div>
+
+      <!-- Screenshot Placeholder -->
+      <div class="screenshot-container">
+        <div class="screenshot-class-tag">.screenshot-dashboard</div>
+        <div class="screenshot-placeholder-info">
+          <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+          <p><strong>[ INSERT SCREENSHOT: DASHBOARD UTAMA SEHATI ]</strong></p>
+          <p style="font-size: 11px; margin-top: 4px;">Tampilan grafik Donut rasio kehadiran kru hari ini, total order makanan, dan list approval</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>SEHATI Enterprise Proposal</span>
+      <span>Halaman 2</span>
+    </div>
+  </div>
+
+
+  <!-- ================= PAGE 3: TEKNOLOGI & ARSITEKTUR ================= -->
+  <div class="page">
+    <div class="page-header">
+      <span class="doc-title">SEHATI - Proposal & Dokumentasi</span>
+      <span class="page-tag">Teknologi & Arsitektur</span>
+    </div>
+
+    <div class="page-content">
+      <h2 class="section-title">Arsitektur Clean Architecture</h2>
+      <p class="intro-text">
+        Untuk menjamin keandalan jangka panjang, skalabilitas tinggi, serta kemudahan dalam integrasi masa depan, 
+        SEHATI dibangun sepenuhnya menggunakan prinsip <strong>Clean Architecture</strong>. Pemisahan kode yang bersih 
+        memastikan logika bisnis tidak terikat pada framework UI, database, atau library networking luar.
+      </p>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">
+            <span class="badge">Presentation Layer</span>
+          </div>
+          Menggunakan <strong>Flutter Web & GetX</strong>. Bertugas mengelola rendering UI yang responsif, 
+          manajemen state yang reaktif, serta navigasi/routing yang dinamis tanpa membebani memori web browser.
+        </div>
+
+        <div class="card">
+          <div class="card-title">
+            <span class="badge">Domain Layer</span>
+          </div>
+          Merupakan jantung logika bisnis (Core Business Rules). Terdiri dari Entities dan Use Cases 
+          yang independen. Tidak terpengaruh perubahan struktur database maupun perubahan desain antarmuka.
+        </div>
+
+        <div class="card">
+          <div class="card-title">
+            <span class="badge">Data Layer</span>
+          </div>
+          Mengelola pengambilan data dari REST API (menggunakan client <strong>Dio</strong>) dan 
+          penyimpanan lokal (<strong>GetStorage</strong>). Mengimplementasikan Repository Pattern untuk transisi data.
+        </div>
+
+        <div class="card">
+          <div class="card-title">
+            <span class="badge">Modular Features</span>
+          </div>
+          Setiap modul (Auth, Absensi, Dapur, Payroll, Stok) diisolasi dalam satu folder fitur yang berisi 
+          struktur data, domain, dan presentasi tersendiri guna mempermudah kolaborasi tim developer.
+        </div>
+      </div>
+
+      <div class="highlight-box" style="margin-top: 10px;">
+        <strong>Teknologi Pendukung Utama:</strong><br>
+        • <strong>Framework:</strong> Flutter Web SDK 3.x &bull; <strong>State Management:</strong> GetX<br>
+        • <strong>Networking:</strong> Dio Client &bull; <strong>Storage:</strong> GetStorage &bull; <strong>Laporan:</strong> Excel (xlsx) & PDF Export
+      </div>
+
+      <div class="screenshot-container" style="height: 180px;">
+        <div class="screenshot-class-tag">.screenshot-clean-architecture</div>
+        <div class="screenshot-placeholder-info">
+          <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+          <p><strong>[ INSERT SCREENSHOT: DIAGRAM STRUKTUR DIREKTORI / CLEAN ARCHITECTURE ]</strong></p>
+          <p style="font-size: 11px; margin-top: 4px;">Menampilkan susunan folder lib/features/ dengan data, domain, dan presentation</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>SEHATI Enterprise Proposal</span>
+      <span>Halaman 3</span>
+    </div>
+  </div>
+
+
+
+  <!-- ================= PAGE 4: PETA MODUL & STANDAR SCREENSHOT ================= -->
+  <div class="page">
+    <div class="page-header"><span class="doc-title">SEHATI - Proposal & Dokumentasi</span><span class="page-tag">Peta Modul</span></div>
+    <div class="page-content">
+      <h2 class="section-title">Peta Modul Sidebar</h2>
+      <p class="intro-text">Dokumentasi lanjutan disusun dengan pendekatan <strong>per modul/menu akhir</strong>, bukan hanya berdasarkan parent menu. Dengan pola ini, setiap halaman fitur memiliki ruang screenshot masing-masing sehingga dokumentasi lebih mudah dilengkapi setelah proses capture tampilan aplikasi.</p>
+      <div class="highlight-box"><strong>Standar Penempatan Screenshot:</strong> setiap modul di bawah ini memiliki placeholder screenshot tersendiri dengan class unik berdasarkan kode menu. Placeholder dapat diganti langsung dengan tag <code>&lt;img&gt;</code> tanpa mengubah struktur dokumen.</div>
+      <table class="module-index-table"><thead><tr><th>Domain Sidebar</th><th>Jumlah Modul</th><th>Catatan Dokumentasi</th></tr></thead><tbody><tr><td><strong>UTAMA</strong></td><td>1 modul terdokumentasi</td><td>Setiap modul memiliki placeholder screenshot terpisah</td></tr><tr><td><strong>PROFILE YAYASAN</strong></td><td>7 modul terdokumentasi</td><td>Setiap modul memiliki placeholder screenshot terpisah</td></tr><tr><td><strong>KARYAWAN &amp; JABATAN</strong></td><td>6 modul terdokumentasi</td><td>Setiap modul memiliki placeholder screenshot terpisah</td></tr><tr><td><strong>PAYROLL</strong></td><td>3 modul terdokumentasi</td><td>Setiap modul memiliki placeholder screenshot terpisah</td></tr><tr><td><strong>ABSENSI</strong></td><td>7 modul terdokumentasi</td><td>Setiap modul memiliki placeholder screenshot terpisah</td></tr><tr><td><strong>SHIFT</strong></td><td>4 modul terdokumentasi</td><td>Setiap modul memiliki placeholder screenshot terpisah</td></tr><tr><td><strong>DURASI JAM KERJA</strong></td><td>1 modul terdokumentasi</td><td>Setiap modul memiliki placeholder screenshot terpisah</td></tr><tr><td><strong>PENERIMA MANFAAT</strong></td><td>1 modul terdokumentasi</td><td>Setiap modul memiliki placeholder screenshot terpisah</td></tr><tr><td><strong>INVENTARIS</strong></td><td>3 modul terdokumentasi</td><td>Setiap modul memiliki placeholder screenshot terpisah</td></tr><tr><td><strong>MENU DAPUR</strong></td><td>3 modul terdokumentasi</td><td>Setiap modul memiliki placeholder screenshot terpisah</td></tr><tr><td><strong>PEKERJAAN</strong></td><td>5 modul terdokumentasi</td><td>Setiap modul memiliki placeholder screenshot terpisah</td></tr><tr><td><strong>KEUANGAN</strong></td><td>5 modul terdokumentasi</td><td>Setiap modul memiliki placeholder screenshot terpisah</td></tr><tr><td><strong>PERSETUJUAN</strong></td><td>3 modul terdokumentasi</td><td>Setiap modul memiliki placeholder screenshot terpisah</td></tr><tr><td><strong>KONFIGURASI</strong></td><td>23 modul terdokumentasi</td><td>Setiap modul memiliki placeholder screenshot terpisah</td></tr></tbody></table>
+    </div>
+    <div class="page-footer"><span>SEHATI Enterprise Proposal</span><span>Halaman 4</span></div>
+  </div>
+
+
+  <!-- ================= PAGE 5: DETAIL MODUL Dokumentasi Modul ================= -->
+  <div class="page">
+    <div class="page-header"><span class="doc-title">SEHATI - Proposal & Dokumentasi</span><span class="page-tag">Dokumentasi Modul</span></div>
+    <div class="page-content">
+      <h2 class="section-title">Dokumentasi Modul</h2>
+      
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Beranda</h3>
+          <span class="module-path">UTAMA / DASHBOARD</span>
+        </div>
+        <p class="module-desc">Halaman ringkasan operasional untuk memantau indikator utama sistem secara cepat, mulai dari aktivitas dapur, status pekerjaan, absensi, hingga kebutuhan persetujuan.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Ringkasan KPI harian dan status operasional</li><li>Shortcut menuju modul prioritas</li><li>Daftar notifikasi/persetujuan yang perlu ditindaklanjuti</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-dashboard</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: BERANDA ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Anggota Yayasan</h3>
+          <span class="module-path">PROFILE YAYASAN / AGGOTA_YAYASAN</span>
+        </div>
+        <p class="module-desc">Mengelola data anggota yayasan yang berwenang dalam pengawasan, administrasi, dan tata kelola operasional.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Tambah, ubah, dan lihat detail data</li><li>Validasi kelengkapan informasi administratif</li><li>Menjadi referensi untuk modul operasional terkait</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-aggota-yayasan</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: ANGGOTA YAYASAN ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Alamat Dapur</h3>
+          <span class="module-path">PROFILE YAYASAN / ID_ALAMAT_DAPUR</span>
+        </div>
+        <p class="module-desc">Mencatat lokasi dapur/SPPG sebagai basis koordinat operasional, validasi wilayah, dan rujukan distribusi.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Tambah, ubah, dan lihat detail data</li><li>Validasi kelengkapan informasi administratif</li><li>Menjadi referensi untuk modul operasional terkait</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-id-alamat-dapur</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: ALAMAT DAPUR ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page-footer"><span>SEHATI Enterprise Proposal</span><span>Halaman 5</span></div>
+  </div>
+
+
+  <!-- ================= PAGE 6: DETAIL MODUL PROFILE YAYASAN ================= -->
+  <div class="page">
+    <div class="page-header"><span class="doc-title">SEHATI - Proposal & Dokumentasi</span><span class="page-tag">PROFILE YAYASAN</span></div>
+    <div class="page-content">
+      <h2 class="section-title">Dokumentasi Modul</h2>
+      
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Kepala SPPG Dapur</h3>
+          <span class="module-path">PROFILE YAYASAN / ID_KEPALA_SPPG_DAPUR</span>
+        </div>
+        <p class="module-desc">Mengelola data penanggung jawab dapur yang menjadi PIC operasional dan validasi kegiatan.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Tambah, ubah, dan lihat detail data</li><li>Validasi kelengkapan informasi administratif</li><li>Menjadi referensi untuk modul operasional terkait</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-id-kepala-sppg-dapur</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: KEPALA SPPG DAPUR ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Informasi Koramil</h3>
+          <span class="module-path">PROFILE YAYASAN / ID_INFORMASI_KORAMIL</span>
+        </div>
+        <p class="module-desc">Mencatat informasi Koramil terkait untuk kebutuhan koordinasi pengawasan lapangan.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Tambah, ubah, dan lihat detail data</li><li>Validasi kelengkapan informasi administratif</li><li>Menjadi referensi untuk modul operasional terkait</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-id-informasi-koramil</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: INFORMASI KORAMIL ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Lokasi Utama</h3>
+          <span class="module-path">PROFILE YAYASAN / LOKASI_UTAMA</span>
+        </div>
+        <p class="module-desc">Mendefinisikan lokasi utama yayasan/dapur sebagai pusat administrasi dan referensi sistem.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Tambah, ubah, dan lihat detail data</li><li>Validasi kelengkapan informasi administratif</li><li>Menjadi referensi untuk modul operasional terkait</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-lokasi-utama</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: LOKASI UTAMA ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page-footer"><span>SEHATI Enterprise Proposal</span><span>Halaman 6</span></div>
+  </div>
+
+
+  <!-- ================= PAGE 7: DETAIL MODUL Dokumentasi Modul ================= -->
+  <div class="page">
+    <div class="page-header"><span class="doc-title">SEHATI - Proposal & Dokumentasi</span><span class="page-tag">Dokumentasi Modul</span></div>
+    <div class="page-content">
+      <h2 class="section-title">Dokumentasi Modul</h2>
+      
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Penugasan Pengawas</h3>
+          <span class="module-path">PROFILE YAYASAN / PENUGASAN_PENGAWAS</span>
+        </div>
+        <p class="module-desc">Mengatur penempatan pengawas pada dapur atau wilayah kerja tertentu.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Tambah, ubah, dan lihat detail data</li><li>Validasi kelengkapan informasi administratif</li><li>Menjadi referensi untuk modul operasional terkait</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-penugasan-pengawas</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: PENUGASAN PENGAWAS ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Validasi Lokasi</h3>
+          <span class="module-path">PROFILE YAYASAN / VALIDASI_LOKASI</span>
+        </div>
+        <p class="module-desc">Mengatur konfigurasi radius/geofencing sebagai dasar validasi absensi dan aktivitas berbasis lokasi.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Tambah, ubah, dan lihat detail data</li><li>Validasi kelengkapan informasi administratif</li><li>Menjadi referensi untuk modul operasional terkait</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-validasi-lokasi</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: VALIDASI LOKASI ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Data Karyawan</h3>
+          <span class="module-path">KARYAWAN &amp; JABATAN / STAFF_DATA_KARYAWAN</span>
+        </div>
+        <p class="module-desc">Master data karyawan/kru dapur berisi identitas, status kerja, jabatan, dan informasi penempatan.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Pencatatan data master dan status aktif</li><li>Pencarian/filter data untuk administrasi cepat</li><li>Menjadi referensi untuk absensi, shift, dan payroll</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-staff-data-karyawan</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: DATA KARYAWAN ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page-footer"><span>SEHATI Enterprise Proposal</span><span>Halaman 7</span></div>
+  </div>
+
+
+  <!-- ================= PAGE 8: DETAIL MODUL KARYAWAN &amp; JABATAN ================= -->
+  <div class="page">
+    <div class="page-header"><span class="doc-title">SEHATI - Proposal & Dokumentasi</span><span class="page-tag">KARYAWAN &amp; JABATAN</span></div>
+    <div class="page-content">
+      <h2 class="section-title">Dokumentasi Modul</h2>
+      
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Set Gaji</h3>
+          <span class="module-path">KARYAWAN &amp; JABATAN / STAFF_SET_GAJI</span>
+        </div>
+        <p class="module-desc">Konfigurasi komponen gaji per karyawan sebagai dasar perhitungan payroll.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Pencatatan data master dan status aktif</li><li>Pencarian/filter data untuk administrasi cepat</li><li>Menjadi referensi untuk absensi, shift, dan payroll</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-staff-set-gaji</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: SET GAJI ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Data Jatah Cuti</h3>
+          <span class="module-path">KARYAWAN &amp; JABATAN / STAFF_DATA_JATAH_CUTI</span>
+        </div>
+        <p class="module-desc">Mengelola saldo dan hak cuti masing-masing karyawan.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Pencatatan data master dan status aktif</li><li>Pencarian/filter data untuk administrasi cepat</li><li>Menjadi referensi untuk absensi, shift, dan payroll</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-staff-data-jatah-cuti</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: DATA JATAH CUTI ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Data Tipe Cuti</h3>
+          <span class="module-path">KARYAWAN &amp; JABATAN / STAFF_DATA_TIPE_CUTI</span>
+        </div>
+        <p class="module-desc">Master jenis cuti/izin yang dapat diajukan oleh karyawan.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Pencatatan data master dan status aktif</li><li>Pencarian/filter data untuk administrasi cepat</li><li>Menjadi referensi untuk absensi, shift, dan payroll</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-staff-data-tipe-cuti</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: DATA TIPE CUTI ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page-footer"><span>SEHATI Enterprise Proposal</span><span>Halaman 8</span></div>
+  </div>
+
+
+  <!-- ================= PAGE 9: DETAIL MODUL Dokumentasi Modul ================= -->
+  <div class="page">
+    <div class="page-header"><span class="doc-title">SEHATI - Proposal & Dokumentasi</span><span class="page-tag">Dokumentasi Modul</span></div>
+    <div class="page-content">
+      <h2 class="section-title">Dokumentasi Modul</h2>
+      
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Data Hari Libur</h3>
+          <span class="module-path">KARYAWAN &amp; JABATAN / STAFF_DATA_HARI_LIBUR</span>
+        </div>
+        <p class="module-desc">Kalender hari libur yang memengaruhi jadwal kerja, absensi, dan payroll.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Pencatatan data master dan status aktif</li><li>Pencarian/filter data untuk administrasi cepat</li><li>Menjadi referensi untuk absensi, shift, dan payroll</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-staff-data-hari-libur</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: DATA HARI LIBUR ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Jabatan</h3>
+          <span class="module-path">KARYAWAN &amp; JABATAN / JABATAN</span>
+        </div>
+        <p class="module-desc">Master jabatan untuk mengelompokkan peran kerja, struktur tim, dan referensi penggajian.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Pencatatan data master dan status aktif</li><li>Pencarian/filter data untuk administrasi cepat</li><li>Menjadi referensi untuk absensi, shift, dan payroll</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-jabatan</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: JABATAN ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Master Payroll</h3>
+          <span class="module-path">PAYROLL / PAYROLL_MASTER_PAYROLL</span>
+        </div>
+        <p class="module-desc">Mengatur komponen pendapatan, potongan, tunjangan, dan parameter perhitungan gaji.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Konfigurasi komponen payroll</li><li>Rekap dan validasi hasil perhitungan</li><li>Dokumen slip gaji siap cetak/unduh</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-payroll-master-payroll</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: MASTER PAYROLL ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page-footer"><span>SEHATI Enterprise Proposal</span><span>Halaman 9</span></div>
+  </div>
+
+
+  <!-- ================= PAGE 10: DETAIL MODUL Dokumentasi Modul ================= -->
+  <div class="page">
+    <div class="page-header"><span class="doc-title">SEHATI - Proposal & Dokumentasi</span><span class="page-tag">Dokumentasi Modul</span></div>
+    <div class="page-content">
+      <h2 class="section-title">Dokumentasi Modul</h2>
+      
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Perhitungan Gaji</h3>
+          <span class="module-path">PAYROLL / PAYROLL_PERHITUNGAN_GAJI</span>
+        </div>
+        <p class="module-desc">Memproses kalkulasi gaji berdasarkan data karyawan, absensi, lembur, potongan, dan komponen payroll.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Konfigurasi komponen payroll</li><li>Rekap dan validasi hasil perhitungan</li><li>Dokumen slip gaji siap cetak/unduh</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-payroll-perhitungan-gaji</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: PERHITUNGAN GAJI ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Slip Gaji</h3>
+          <span class="module-path">PAYROLL / PAYROLL_SLIP_GAJI</span>
+        </div>
+        <p class="module-desc">Menampilkan dan mengelola slip gaji karyawan yang telah dihitung.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Konfigurasi komponen payroll</li><li>Rekap dan validasi hasil perhitungan</li><li>Dokumen slip gaji siap cetak/unduh</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-payroll-slip-gaji</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: SLIP GAJI ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Jadwal Absensi</h3>
+          <span class="module-path">ABSENSI / ABSENSI_JADWAL</span>
+        </div>
+        <p class="module-desc">Menyusun jadwal absensi sesuai shift, lokasi, dan periode kerja.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Input, validasi, dan riwayat transaksi</li><li>Terhubung ke approval dan payroll</li><li>Mendukung audit kehadiran berbasis periode</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-absensi-jadwal</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: JADWAL ABSENSI ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page-footer"><span>SEHATI Enterprise Proposal</span><span>Halaman 10</span></div>
+  </div>
+
+
+  <!-- ================= PAGE 11: DETAIL MODUL ABSENSI ================= -->
+  <div class="page">
+    <div class="page-header"><span class="doc-title">SEHATI - Proposal & Dokumentasi</span><span class="page-tag">ABSENSI</span></div>
+    <div class="page-content">
+      <h2 class="section-title">Dokumentasi Modul</h2>
+      
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Kelola Absensi</h3>
+          <span class="module-path">ABSENSI / ABSENSI_KELOLA</span>
+        </div>
+        <p class="module-desc">Mengelola data absensi manual/import serta koreksi absensi bila diperlukan.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Input, validasi, dan riwayat transaksi</li><li>Terhubung ke approval dan payroll</li><li>Mendukung audit kehadiran berbasis periode</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-absensi-kelola</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: KELOLA ABSENSI ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Riwayat Absensi</h3>
+          <span class="module-path">ABSENSI / ABSENSI_RIWAYAT</span>
+        </div>
+        <p class="module-desc">Melihat histori absensi karyawan untuk audit kehadiran dan rekap bulanan.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Input, validasi, dan riwayat transaksi</li><li>Terhubung ke approval dan payroll</li><li>Mendukung audit kehadiran berbasis periode</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-absensi-riwayat</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: RIWAYAT ABSENSI ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Absensi Staff</h3>
+          <span class="module-path">ABSENSI / ABSENSI_STAFF</span>
+        </div>
+        <p class="module-desc">Halaman absensi mandiri staf dengan validasi waktu dan lokasi.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Input, validasi, dan riwayat transaksi</li><li>Terhubung ke approval dan payroll</li><li>Mendukung audit kehadiran berbasis periode</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-absensi-staff</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: ABSENSI STAFF ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page-footer"><span>SEHATI Enterprise Proposal</span><span>Halaman 11</span></div>
+  </div>
+
+
+  <!-- ================= PAGE 12: DETAIL MODUL ABSENSI ================= -->
+  <div class="page">
+    <div class="page-header"><span class="doc-title">SEHATI - Proposal & Dokumentasi</span><span class="page-tag">ABSENSI</span></div>
+    <div class="page-content">
+      <h2 class="section-title">Dokumentasi Modul</h2>
+      
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Riwayat Absensi Staff</h3>
+          <span class="module-path">ABSENSI / ABSENSI_RIWAYAT_STAFF</span>
+        </div>
+        <p class="module-desc">Riwayat absensi dari sudut pandang staf untuk transparansi personal.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Input, validasi, dan riwayat transaksi</li><li>Terhubung ke approval dan payroll</li><li>Mendukung audit kehadiran berbasis periode</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-absensi-riwayat-staff</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: RIWAYAT ABSENSI STAFF ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Pengajuan Cuti dan Izin</h3>
+          <span class="module-path">ABSENSI / ABSENSI_PENGAJUAN_CUTI_IZIN</span>
+        </div>
+        <p class="module-desc">Pengajuan cuti/izin oleh karyawan serta pemantauan status persetujuan.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Input, validasi, dan riwayat transaksi</li><li>Terhubung ke approval dan payroll</li><li>Mendukung audit kehadiran berbasis periode</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-absensi-pengajuan-cuti-izin</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: PENGAJUAN CUTI DAN IZIN ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Pengajuan Lembur</h3>
+          <span class="module-path">ABSENSI / ABSENSI_PENGAJUAN_LEMBUR</span>
+        </div>
+        <p class="module-desc">Pengajuan lembur untuk kebutuhan operasional tambahan di luar jam kerja normal.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Input, validasi, dan riwayat transaksi</li><li>Terhubung ke approval dan payroll</li><li>Mendukung audit kehadiran berbasis periode</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-absensi-pengajuan-lembur</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: PENGAJUAN LEMBUR ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page-footer"><span>SEHATI Enterprise Proposal</span><span>Halaman 12</span></div>
+  </div>
+
+
+  <!-- ================= PAGE 13: DETAIL MODUL SHIFT ================= -->
+  <div class="page">
+    <div class="page-header"><span class="doc-title">SEHATI - Proposal & Dokumentasi</span><span class="page-tag">SHIFT</span></div>
+    <div class="page-content">
+      <h2 class="section-title">Dokumentasi Modul</h2>
+      
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Data Shift</h3>
+          <span class="module-path">SHIFT / SHIFT_DATA</span>
+        </div>
+        <p class="module-desc">Master shift berisi jam mulai, jam selesai, toleransi, dan aturan kerja.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Pengaturan jadwal berbasis lokasi dan periode</li><li>Menentukan aturan validasi absensi</li><li>Terhubung dengan perhitungan jam kerja</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-shift-data</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: DATA SHIFT ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Lokasi</h3>
+          <span class="module-path">SHIFT / SHIFT_LOKASI</span>
+        </div>
+        <p class="module-desc">Master lokasi kerja yang digunakan untuk penjadwalan dan validasi absensi.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Pengaturan jadwal berbasis lokasi dan periode</li><li>Menentukan aturan validasi absensi</li><li>Terhubung dengan perhitungan jam kerja</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-shift-lokasi</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: LOKASI ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Kebijakan Shift</h3>
+          <span class="module-path">SHIFT / SHIFT_KEBIJAKAN</span>
+        </div>
+        <p class="module-desc">Konfigurasi kebijakan keterlambatan, toleransi, dan ketentuan kehadiran.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Pengaturan jadwal berbasis lokasi dan periode</li><li>Menentukan aturan validasi absensi</li><li>Terhubung dengan perhitungan jam kerja</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-shift-kebijakan</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: KEBIJAKAN SHIFT ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page-footer"><span>SEHATI Enterprise Proposal</span><span>Halaman 13</span></div>
+  </div>
+
+
+  <!-- ================= PAGE 14: DETAIL MODUL Dokumentasi Modul ================= -->
+  <div class="page">
+    <div class="page-header"><span class="doc-title">SEHATI - Proposal & Dokumentasi</span><span class="page-tag">Dokumentasi Modul</span></div>
+    <div class="page-content">
+      <h2 class="section-title">Dokumentasi Modul</h2>
+      
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Jadwal Shift</h3>
+          <span class="module-path">SHIFT / SHIFT_JADWAL</span>
+        </div>
+        <p class="module-desc">Penjadwalan shift karyawan berdasarkan kebutuhan operasional dapur.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Pengaturan jadwal berbasis lokasi dan periode</li><li>Menentukan aturan validasi absensi</li><li>Terhubung dengan perhitungan jam kerja</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-shift-jadwal</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: JADWAL SHIFT ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Durasi Jam Kerja</h3>
+          <span class="module-path">DURASI JAM KERJA / DURASI_KEBIJAKAN</span>
+        </div>
+        <p class="module-desc">Konfigurasi durasi jam kerja standar sebagai referensi kebijakan operasional dan payroll.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Atur standar jam kerja</li><li>Validasi durasi kerja efektif</li><li>Referensi rekap absensi dan gaji</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-durasi-kebijakan</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: DURASI JAM KERJA ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Data Penerimaan Manfaat</h3>
+          <span class="module-path">PENERIMA MANFAAT / DATA_PENERIMA_MANFAAT</span>
+        </div>
+        <p class="module-desc">Master data penerima manfaat, seperti sekolah atau lokasi distribusi, yang menjadi tujuan layanan MBG.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Kelola data penerima manfaat</li><li>Mapping kebutuhan pemesanan/distribusi</li><li>Referensi jadwal dan jumlah produksi</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-data-penerima-manfaat</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: DATA PENERIMAAN MANFAAT ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page-footer"><span>SEHATI Enterprise Proposal</span><span>Halaman 14</span></div>
+  </div>
+
+
+  <!-- ================= PAGE 15: DETAIL MODUL INVENTARIS ================= -->
+  <div class="page">
+    <div class="page-header"><span class="doc-title">SEHATI - Proposal & Dokumentasi</span><span class="page-tag">INVENTARIS</span></div>
+    <div class="page-content">
+      <h2 class="section-title">Dokumentasi Modul</h2>
+      
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Data Bahan Baku</h3>
+          <span class="module-path">INVENTARIS / INVENTARIS_DATA_BAHAN_BAKU</span>
+        </div>
+        <p class="module-desc">Mengelola stok bahan baku aktif, jumlah tersedia, dan informasi kebutuhan dapur.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Tambah dan perbarui data inventaris</li><li>Pantau status dan kuantitas aset/stok</li><li>Mendukung audit kebutuhan operasional</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-inventaris-data-bahan-baku</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: DATA BAHAN BAKU ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Data Perangkat Dapur</h3>
+          <span class="module-path">INVENTARIS / INVENTARIS_DATA_PERANGKAT_DAPUR</span>
+        </div>
+        <p class="module-desc">Mengelola inventaris peralatan dapur yang digunakan untuk produksi makanan.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Tambah dan perbarui data inventaris</li><li>Pantau status dan kuantitas aset/stok</li><li>Mendukung audit kebutuhan operasional</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-inventaris-data-perangkat-dapur</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: DATA PERANGKAT DAPUR ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Data Perangkat Operasional</h3>
+          <span class="module-path">INVENTARIS / INVENTARIS_DATA_PERANGKAT_OPERASIONAL</span>
+        </div>
+        <p class="module-desc">Mengelola perangkat pendukung operasional non-dapur untuk kelancaran kerja.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Tambah dan perbarui data inventaris</li><li>Pantau status dan kuantitas aset/stok</li><li>Mendukung audit kebutuhan operasional</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-inventaris-data-perangkat-operasional</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: DATA PERANGKAT OPERASIONAL ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page-footer"><span>SEHATI Enterprise Proposal</span><span>Halaman 15</span></div>
+  </div>
+
+
+  <!-- ================= PAGE 16: DETAIL MODUL MENU DAPUR ================= -->
+  <div class="page">
+    <div class="page-header"><span class="doc-title">SEHATI - Proposal & Dokumentasi</span><span class="page-tag">MENU DAPUR</span></div>
+    <div class="page-content">
+      <h2 class="section-title">Dokumentasi Modul</h2>
+      
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Menu Masakan</h3>
+          <span class="module-path">MENU DAPUR / MD_MENU_MASAKAN</span>
+        </div>
+        <p class="module-desc">Master menu masakan berisi resep, komposisi, dan informasi gizi dasar.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Kelola data menu dan paket</li><li>Menjadi acuan kebutuhan bahan baku</li><li>Mendukung perencanaan produksi MBG</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-md-menu-masakan</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: MENU MASAKAN ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Paket Masakan</h3>
+          <span class="module-path">MENU DAPUR / MD_PAKET_MASAKAN</span>
+        </div>
+        <p class="module-desc">Mengelompokkan beberapa menu menjadi paket makanan yang siap dijadwalkan.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Kelola data menu dan paket</li><li>Menjadi acuan kebutuhan bahan baku</li><li>Mendukung perencanaan produksi MBG</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-md-paket-masakan</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: PAKET MASAKAN ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Jadwal Paket Menu</h3>
+          <span class="module-path">MENU DAPUR / MD_JADWAL_PAKET_MENU</span>
+        </div>
+        <p class="module-desc">Menentukan rotasi dan kalender paket menu untuk kebutuhan produksi harian.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Kelola data menu dan paket</li><li>Menjadi acuan kebutuhan bahan baku</li><li>Mendukung perencanaan produksi MBG</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-md-jadwal-paket-menu</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: JADWAL PAKET MENU ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page-footer"><span>SEHATI Enterprise Proposal</span><span>Halaman 16</span></div>
+  </div>
+
+
+  <!-- ================= PAGE 17: DETAIL MODUL PEKERJAAN ================= -->
+  <div class="page">
+    <div class="page-header"><span class="doc-title">SEHATI - Proposal & Dokumentasi</span><span class="page-tag">PEKERJAAN</span></div>
+    <div class="page-content">
+      <h2 class="section-title">Dokumentasi Modul</h2>
+      
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Detail Pesanan</h3>
+          <span class="module-path">PEKERJAAN / PK_DETAIL_PESANAN</span>
+        </div>
+        <p class="module-desc">Halaman detail untuk melihat komponen, status, dan histori satu pesanan.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Monitoring status dan progres pekerjaan</li><li>Kontrol jadwal produksi harian</li><li>Dasar evaluasi kinerja operasional</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-pk-detail-pesanan</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: DETAIL PESANAN ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Riwayat Pesanan</h3>
+          <span class="module-path">PEKERJAAN / PK_RIWAYAT_PESANAN</span>
+        </div>
+        <p class="module-desc">Arsip pesanan yang telah berjalan untuk kebutuhan pelacakan dan audit.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Monitoring status dan progres pekerjaan</li><li>Kontrol jadwal produksi harian</li><li>Dasar evaluasi kinerja operasional</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-pk-riwayat-pesanan</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: RIWAYAT PESANAN ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Daftar Semua Pesanan</h3>
+          <span class="module-path">PEKERJAAN / ORDER_ALL</span>
+        </div>
+        <p class="module-desc">Daftar seluruh pesanan lintas status untuk pemantauan operasional.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Monitoring status dan progres pekerjaan</li><li>Kontrol jadwal produksi harian</li><li>Dasar evaluasi kinerja operasional</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-order-all</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: DAFTAR SEMUA PESANAN ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page-footer"><span>SEHATI Enterprise Proposal</span><span>Halaman 17</span></div>
+  </div>
+
+
+  <!-- ================= PAGE 18: DETAIL MODUL Dokumentasi Modul ================= -->
+  <div class="page">
+    <div class="page-header"><span class="doc-title">SEHATI - Proposal & Dokumentasi</span><span class="page-tag">Dokumentasi Modul</span></div>
+    <div class="page-content">
+      <h2 class="section-title">Dokumentasi Modul</h2>
+      
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Jadwal Masak</h3>
+          <span class="module-path">PEKERJAAN / PK_JADWAL_MASAK</span>
+        </div>
+        <p class="module-desc">Menampilkan jadwal produksi/masak berdasarkan paket, tanggal, dan kebutuhan distribusi.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Monitoring status dan progres pekerjaan</li><li>Kontrol jadwal produksi harian</li><li>Dasar evaluasi kinerja operasional</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-pk-jadwal-masak</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: JADWAL MASAK ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Centang Jadwal</h3>
+          <span class="module-path">PEKERJAAN / PK_CENTANG_JADWAL</span>
+        </div>
+        <p class="module-desc">Checklist pelaksanaan jadwal masak sebagai kontrol progres harian.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Monitoring status dan progres pekerjaan</li><li>Kontrol jadwal produksi harian</li><li>Dasar evaluasi kinerja operasional</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-pk-centang-jadwal</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: CENTANG JADWAL ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Pemasukan</h3>
+          <span class="module-path">KEUANGAN / KEUANGAN_PEMASUKAN</span>
+        </div>
+        <p class="module-desc">Mencatat transaksi pemasukan yang terkait dengan operasional yayasan/dapur.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Input dan klasifikasi transaksi</li><li>Rekap laporan per periode</li><li>Mendukung audit keuangan internal</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-keuangan-pemasukan</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: PEMASUKAN ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page-footer"><span>SEHATI Enterprise Proposal</span><span>Halaman 18</span></div>
+  </div>
+
+
+  <!-- ================= PAGE 19: DETAIL MODUL KEUANGAN ================= -->
+  <div class="page">
+    <div class="page-header"><span class="doc-title">SEHATI - Proposal & Dokumentasi</span><span class="page-tag">KEUANGAN</span></div>
+    <div class="page-content">
+      <h2 class="section-title">Dokumentasi Modul</h2>
+      
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Pengeluaran</h3>
+          <span class="module-path">KEUANGAN / KEUANGAN_PENGELUARAN</span>
+        </div>
+        <p class="module-desc">Mencatat transaksi pengeluaran untuk kebutuhan bahan, operasional, dan aktivitas lain.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Input dan klasifikasi transaksi</li><li>Rekap laporan per periode</li><li>Mendukung audit keuangan internal</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-keuangan-pengeluaran</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: PENGELUARAN ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Petty Cash</h3>
+          <span class="module-path">KEUANGAN / KEUANGAN_PETTY_CASH</span>
+        </div>
+        <p class="module-desc">Mengelola kas kecil untuk transaksi rutin dan kebutuhan mendesak.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Input dan klasifikasi transaksi</li><li>Rekap laporan per periode</li><li>Mendukung audit keuangan internal</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-keuangan-petty-cash</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: PETTY CASH ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Laporan Mutasi</h3>
+          <span class="module-path">KEUANGAN / KEUANGAN_LAPORAN_MUTASI</span>
+        </div>
+        <p class="module-desc">Rekap mutasi kas/bank untuk melihat arus dana masuk dan keluar.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Input dan klasifikasi transaksi</li><li>Rekap laporan per periode</li><li>Mendukung audit keuangan internal</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-keuangan-laporan-mutasi</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: LAPORAN MUTASI ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page-footer"><span>SEHATI Enterprise Proposal</span><span>Halaman 19</span></div>
+  </div>
+
+
+  <!-- ================= PAGE 20: DETAIL MODUL Dokumentasi Modul ================= -->
+  <div class="page">
+    <div class="page-header"><span class="doc-title">SEHATI - Proposal & Dokumentasi</span><span class="page-tag">Dokumentasi Modul</span></div>
+    <div class="page-content">
+      <h2 class="section-title">Dokumentasi Modul</h2>
+      
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Laporan Laba Rugi</h3>
+          <span class="module-path">KEUANGAN / KEUANGAN_LAPORAN_LABA_RUGI</span>
+        </div>
+        <p class="module-desc">Laporan ringkas performa keuangan berdasarkan pemasukan dan pengeluaran.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Input dan klasifikasi transaksi</li><li>Rekap laporan per periode</li><li>Mendukung audit keuangan internal</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-keuangan-laporan-laba-rugi</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: LAPORAN LABA RUGI ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Menunggu Persetujuan</h3>
+          <span class="module-path">PERSETUJUAN / APPROVAL_MENUNGGU_PERSETUJUAN</span>
+        </div>
+        <p class="module-desc">Inbox approval untuk meninjau pengajuan yang membutuhkan keputusan.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Tinjau, setujui, atau tolak pengajuan</li><li>Lacak histori keputusan</li><li>Konfigurasi kebijakan approval per modul</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-approval-menunggu-persetujuan</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: MENUNGGU PERSETUJUAN ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Riwayat Persetujuan</h3>
+          <span class="module-path">PERSETUJUAN / APPROVAL_RIWAYAT_PERSETUJUAN</span>
+        </div>
+        <p class="module-desc">Arsip keputusan approval untuk audit dan pelacakan status pengajuan.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Tinjau, setujui, atau tolak pengajuan</li><li>Lacak histori keputusan</li><li>Konfigurasi kebijakan approval per modul</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-approval-riwayat-persetujuan</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: RIWAYAT PERSETUJUAN ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page-footer"><span>SEHATI Enterprise Proposal</span><span>Halaman 20</span></div>
+  </div>
+
+
+  <!-- ================= PAGE 21: DETAIL MODUL Dokumentasi Modul ================= -->
+  <div class="page">
+    <div class="page-header"><span class="doc-title">SEHATI - Proposal & Dokumentasi</span><span class="page-tag">Dokumentasi Modul</span></div>
+    <div class="page-content">
+      <h2 class="section-title">Dokumentasi Modul</h2>
+      
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Kebijakan Persetujuan</h3>
+          <span class="module-path">PERSETUJUAN / APPROVAL_KEBIJAKAN_PERSETUJUAN</span>
+        </div>
+        <p class="module-desc">Konfigurasi aturan approval, role approver, dan alur eskalasi.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Tinjau, setujui, atau tolak pengajuan</li><li>Lacak histori keputusan</li><li>Konfigurasi kebijakan approval per modul</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-approval-kebijakan-persetujuan</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: KEBIJAKAN PERSETUJUAN ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Undang Pengguna</h3>
+          <span class="module-path">KONFIGURASI / UNDANG_PENGGUNA</span>
+        </div>
+        <p class="module-desc">Mengirim undangan pengguna baru agar dapat mengakses sistem sesuai role.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Kelola master/parameter sistem</li><li>Menjadi referensi proses operasional</li><li>Mendukung kontrol akses, audit, dan SOP</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-undang-pengguna</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: UNDANG PENGGUNA ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Role &amp; Izin</h3>
+          <span class="module-path">KONFIGURASI / ROLE_IZIN</span>
+        </div>
+        <p class="module-desc">Mengatur permission menu dan hak aksi berdasarkan role pengguna.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Kelola master/parameter sistem</li><li>Menjadi referensi proses operasional</li><li>Mendukung kontrol akses, audit, dan SOP</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-role-izin</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: ROLE &amp; IZIN ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page-footer"><span>SEHATI Enterprise Proposal</span><span>Halaman 21</span></div>
+  </div>
+
+
+  <!-- ================= PAGE 22: DETAIL MODUL KONFIGURASI ================= -->
+  <div class="page">
+    <div class="page-header"><span class="doc-title">SEHATI - Proposal & Dokumentasi</span><span class="page-tag">KONFIGURASI</span></div>
+    <div class="page-content">
+      <h2 class="section-title">Dokumentasi Modul</h2>
+      
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Master User</h3>
+          <span class="module-path">KONFIGURASI / MASTER_USER</span>
+        </div>
+        <p class="module-desc">Mengelola akun pengguna, status aktif, dan relasi ke data karyawan.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Kelola master/parameter sistem</li><li>Menjadi referensi proses operasional</li><li>Mendukung kontrol akses, audit, dan SOP</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-master-user</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: MASTER USER ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Master Role</h3>
+          <span class="module-path">KONFIGURASI / MASTER_ROLE</span>
+        </div>
+        <p class="module-desc">Master peran sistem untuk standarisasi hak akses.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Kelola master/parameter sistem</li><li>Menjadi referensi proses operasional</li><li>Mendukung kontrol akses, audit, dan SOP</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-master-role</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: MASTER ROLE ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Configs</h3>
+          <span class="module-path">KONFIGURASI / ALUR_CONFIG</span>
+        </div>
+        <p class="module-desc">Konfigurasi umum alur order dan parameter workflow.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Kelola master/parameter sistem</li><li>Menjadi referensi proses operasional</li><li>Mendukung kontrol akses, audit, dan SOP</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-alur-config</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: CONFIGS ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page-footer"><span>SEHATI Enterprise Proposal</span><span>Halaman 22</span></div>
+  </div>
+
+
+  <!-- ================= PAGE 23: DETAIL MODUL KONFIGURASI ================= -->
+  <div class="page">
+    <div class="page-header"><span class="doc-title">SEHATI - Proposal & Dokumentasi</span><span class="page-tag">KONFIGURASI</span></div>
+    <div class="page-content">
+      <h2 class="section-title">Dokumentasi Modul</h2>
+      
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Tahapan (Stages)</h3>
+          <span class="module-path">KONFIGURASI / ALUR_TAHAPAN</span>
+        </div>
+        <p class="module-desc">Master tahapan proses order dari awal hingga selesai.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Kelola master/parameter sistem</li><li>Menjadi referensi proses operasional</li><li>Mendukung kontrol akses, audit, dan SOP</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-alur-tahapan</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: TAHAPAN (STAGES) ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Matrix Alur</h3>
+          <span class="module-path">KONFIGURASI / ALUR_MATRIX</span>
+        </div>
+        <p class="module-desc">Mengatur hubungan antar tahapan dan transisi status workflow.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Kelola master/parameter sistem</li><li>Menjadi referensi proses operasional</li><li>Mendukung kontrol akses, audit, dan SOP</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-alur-matrix</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: MATRIX ALUR ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Mode &amp; Monitoring</h3>
+          <span class="module-path">KONFIGURASI / ALUR_MODE_MONITORING</span>
+        </div>
+        <p class="module-desc">Memantau mode operasional order dan status workflow berjalan.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Kelola master/parameter sistem</li><li>Menjadi referensi proses operasional</li><li>Mendukung kontrol akses, audit, dan SOP</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-alur-mode-monitoring</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: MODE &amp; MONITORING ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page-footer"><span>SEHATI Enterprise Proposal</span><span>Halaman 23</span></div>
+  </div>
+
+
+  <!-- ================= PAGE 24: DETAIL MODUL KONFIGURASI ================= -->
+  <div class="page">
+    <div class="page-header"><span class="doc-title">SEHATI - Proposal & Dokumentasi</span><span class="page-tag">KONFIGURASI</span></div>
+    <div class="page-content">
+      <h2 class="section-title">Dokumentasi Modul</h2>
+      
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Approvers</h3>
+          <span class="module-path">KONFIGURASI / ALUR_APPROVER</span>
+        </div>
+        <p class="module-desc">Menentukan approver pada alur kerja tertentu.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Kelola master/parameter sistem</li><li>Menjadi referensi proses operasional</li><li>Mendukung kontrol akses, audit, dan SOP</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-alur-approver</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: APPROVERS ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Log Aktivitas</h3>
+          <span class="module-path">KONFIGURASI / AUDIT_LOG</span>
+        </div>
+        <p class="module-desc">Mencatat aktivitas pengguna sebagai audit trail sistem.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Kelola master/parameter sistem</li><li>Menjadi referensi proses operasional</li><li>Mendukung kontrol akses, audit, dan SOP</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-audit-log</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: LOG AKTIVITAS ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Checklist Persiapan</h3>
+          <span class="module-path">KONFIGURASI / CHECKLIST_PERSIAPAN</span>
+        </div>
+        <p class="module-desc">Master checklist untuk persiapan sebelum proses masak.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Kelola master/parameter sistem</li><li>Menjadi referensi proses operasional</li><li>Mendukung kontrol akses, audit, dan SOP</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-checklist-persiapan</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: CHECKLIST PERSIAPAN ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page-footer"><span>SEHATI Enterprise Proposal</span><span>Halaman 24</span></div>
+  </div>
+
+
+  <!-- ================= PAGE 25: DETAIL MODUL KONFIGURASI ================= -->
+  <div class="page">
+    <div class="page-header"><span class="doc-title">SEHATI - Proposal & Dokumentasi</span><span class="page-tag">KONFIGURASI</span></div>
+    <div class="page-content">
+      <h2 class="section-title">Dokumentasi Modul</h2>
+      
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Checklist Kebersihan</h3>
+          <span class="module-path">KONFIGURASI / CHECKLIST_KEBERSIHAN</span>
+        </div>
+        <p class="module-desc">Master checklist kebersihan untuk kepatuhan SOP dapur.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Kelola master/parameter sistem</li><li>Menjadi referensi proses operasional</li><li>Mendukung kontrol akses, audit, dan SOP</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-checklist-kebersihan</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: CHECKLIST KEBERSIHAN ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Pengajuan Lembur</h3>
+          <span class="module-path">KONFIGURASI / PENGAJUAN_LEMBUR</span>
+        </div>
+        <p class="module-desc">Konfigurasi/pengelolaan pengajuan lembur dari sisi sistem.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Kelola master/parameter sistem</li><li>Menjadi referensi proses operasional</li><li>Mendukung kontrol akses, audit, dan SOP</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-pengajuan-lembur</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: PENGAJUAN LEMBUR ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Laporan Harian</h3>
+          <span class="module-path">KONFIGURASI / OPERASIONAL_LAPORAN_HARIAN</span>
+        </div>
+        <p class="module-desc">Rekap aktivitas operasional harian dapur untuk monitoring manajemen.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Kelola master/parameter sistem</li><li>Menjadi referensi proses operasional</li><li>Mendukung kontrol akses, audit, dan SOP</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-operasional-laporan-harian</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: LAPORAN HARIAN ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page-footer"><span>SEHATI Enterprise Proposal</span><span>Halaman 25</span></div>
+  </div>
+
+
+  <!-- ================= PAGE 26: DETAIL MODUL KONFIGURASI ================= -->
+  <div class="page">
+    <div class="page-header"><span class="doc-title">SEHATI - Proposal & Dokumentasi</span><span class="page-tag">KONFIGURASI</span></div>
+    <div class="page-content">
+      <h2 class="section-title">Dokumentasi Modul</h2>
+      
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Satuan Massa</h3>
+          <span class="module-path">KONFIGURASI / MDD_SATUAN</span>
+        </div>
+        <p class="module-desc">Master satuan massa/ukuran untuk bahan baku dan resep.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Kelola master/parameter sistem</li><li>Menjadi referensi proses operasional</li><li>Mendukung kontrol akses, audit, dan SOP</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-mdd-satuan</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: SATUAN MASSA ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Kategori</h3>
+          <span class="module-path">KONFIGURASI / MDD_KATEGORI</span>
+        </div>
+        <p class="module-desc">Master kategori untuk pengelompokan data dapur.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Kelola master/parameter sistem</li><li>Menjadi referensi proses operasional</li><li>Mendukung kontrol akses, audit, dan SOP</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-mdd-kategori</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: KATEGORI ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Gizi</h3>
+          <span class="module-path">KONFIGURASI / MDD_GIZI</span>
+        </div>
+        <p class="module-desc">Master informasi gizi sebagai acuan komposisi menu.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Kelola master/parameter sistem</li><li>Menjadi referensi proses operasional</li><li>Mendukung kontrol akses, audit, dan SOP</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-mdd-gizi</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: GIZI ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page-footer"><span>SEHATI Enterprise Proposal</span><span>Halaman 26</span></div>
+  </div>
+
+
+  <!-- ================= PAGE 27: DETAIL MODUL KONFIGURASI ================= -->
+  <div class="page">
+    <div class="page-header"><span class="doc-title">SEHATI - Proposal & Dokumentasi</span><span class="page-tag">KONFIGURASI</span></div>
+    <div class="page-content">
+      <h2 class="section-title">Dokumentasi Modul</h2>
+      
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Bahan Baku</h3>
+          <span class="module-path">KONFIGURASI / MDD_BAHAN_BAKU</span>
+        </div>
+        <p class="module-desc">Master bahan baku dasar untuk resep, stok, dan pengadaan.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Kelola master/parameter sistem</li><li>Menjadi referensi proses operasional</li><li>Mendukung kontrol akses, audit, dan SOP</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-mdd-bahan-baku</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: BAHAN BAKU ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Perangkat Dapur</h3>
+          <span class="module-path">KONFIGURASI / MDD_PERANGKAT_DAPUR</span>
+        </div>
+        <p class="module-desc">Master jenis perangkat dapur sebagai referensi inventaris.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Kelola master/parameter sistem</li><li>Menjadi referensi proses operasional</li><li>Mendukung kontrol akses, audit, dan SOP</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-mdd-perangkat-dapur</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: PERANGKAT DAPUR ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Perangkat Operasional</h3>
+          <span class="module-path">KONFIGURASI / MDD_PERANGKAT_OPERASIONAL</span>
+        </div>
+        <p class="module-desc">Master jenis perangkat operasional sebagai referensi aset.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Kelola master/parameter sistem</li><li>Menjadi referensi proses operasional</li><li>Mendukung kontrol akses, audit, dan SOP</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-mdd-perangkat-operasional</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: PERANGKAT OPERASIONAL ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page-footer"><span>SEHATI Enterprise Proposal</span><span>Halaman 27</span></div>
+  </div>
+
+
+  <!-- ================= PAGE 28: DETAIL MODUL KONFIGURASI ================= -->
+  <div class="page">
+    <div class="page-header"><span class="doc-title">SEHATI - Proposal & Dokumentasi</span><span class="page-tag">KONFIGURASI</span></div>
+    <div class="page-content">
+      <h2 class="section-title">Dokumentasi Modul</h2>
+      
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Pra Pekerjaan Masak</h3>
+          <span class="module-path">KONFIGURASI / SOP_PRA_MASAK</span>
+        </div>
+        <p class="module-desc">Konfigurasi SOP sebelum kegiatan memasak dimulai.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Kelola master/parameter sistem</li><li>Menjadi referensi proses operasional</li><li>Mendukung kontrol akses, audit, dan SOP</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-sop-pra-masak</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: PRA PEKERJAAN MASAK ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Penyajian Makanan</h3>
+          <span class="module-path">KONFIGURASI / SOP_PENYAJIAN</span>
+        </div>
+        <p class="module-desc">Konfigurasi SOP penyajian makanan untuk menjaga standar layanan.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Kelola master/parameter sistem</li><li>Menjadi referensi proses operasional</li><li>Mendukung kontrol akses, audit, dan SOP</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-sop-penyajian</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: PENYAJIAN MAKANAN ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <h3 class="module-name">Alur Pengantaran</h3>
+          <span class="module-path">KONFIGURASI / SOP_PENGANTARAN</span>
+        </div>
+        <p class="module-desc">Konfigurasi SOP pengantaran/distribusi makanan.</p>
+        <div class="module-detail-grid">
+          <div>
+            <ul class="feature-list"><li>Kelola master/parameter sistem</li><li>Menjadi referensi proses operasional</li><li>Mendukung kontrol akses, audit, dan SOP</li></ul>
+          </div>
+          <div class="screenshot-container compact">
+            <div class="screenshot-class-tag">.screenshot-sop-pengantaran</div>
+            <div class="screenshot-placeholder-info">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <p><strong>[ INSERT SCREENSHOT: ALUR PENGANTARAN ]</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page-footer"><span>SEHATI Enterprise Proposal</span><span>Halaman 28</span></div>
+  </div>
+
+
+  <!-- ================= PAGE 29: PENUTUP ================= -->
+  <div class="page">
+    <div class="page-header"><span class="doc-title">SEHATI - Proposal & Dokumentasi</span><span class="page-tag">Penutup</span></div>
+    <div class="page-content">
+      <h2 class="section-title">Kesimpulan Dokumentasi</h2>
+      <p class="intro-text">Dokumentasi ini telah disusun mengikuti struktur sidebar aplikasi SEHATI dan dilengkapi placeholder screenshot pada setiap modul/menu akhir. Pendekatan ini memudahkan proses finalisasi proposal karena setiap screenshot dapat dimasukkan tepat pada bagian fitur yang relevan.</p>
+      <div class="highlight-box"><strong>Rekomendasi Finalisasi:</strong> lengkapi setiap placeholder dengan screenshot aktual dari aplikasi, tambahkan data dummy yang aman, dan pastikan nama role atau data pribadi yang muncul pada layar sudah disamarkan sebelum dokumen dicetak.</div>
+      <div class="screenshot-container" style="height: 250px;"><div class="screenshot-class-tag">.screenshot-final-summary</div><div class="screenshot-placeholder-info"><svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg><p><strong>[ INSERT SCREENSHOT: RINGKASAN AKHIR / DASHBOARD FINAL ]</strong></p><p style="font-size: 11px; margin-top: 4px;">Opsional: tampilan dashboard atau halaman summary sebagai penutup proposal</p></div></div>
+    </div>
+    <div class="page-footer"><span>SEHATI Enterprise Proposal</span><span>Halaman 29</span></div>
+  </div>
+
+
+</body>
+</html>
